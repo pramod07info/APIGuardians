@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: api-guardians
+  ai:
+    openai:
+      # The fallback only permits startup while LLM mode is disabled; it is not a real credential.
+      api-key: ${OPENAI_API_KEY:not-configured}
+      chat:
+        options:
+          model: ${OPENAI_MODEL:gpt-4.1-mini}
+
+api-guardians:
+  llm:
+    enabled: ${API_GUARDIANS_LLM_ENABLED:false}
+
+server:
+  error:
+    include-message: always
